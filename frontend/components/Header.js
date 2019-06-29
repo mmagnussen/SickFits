@@ -1,6 +1,20 @@
 import Nav from './Nav';
 import Link from 'next/link';
 import styled from 'styled-components';
+import Router from 'next/router';
+import NProgress from 'nprogress';
+
+
+//show progress bar at top of header
+Router.onRouteChangeStart = () => {
+    NProgress.start();
+};
+Router.onRouteChangeComplete = () => {
+    NProgress.done();
+};
+Router.onRouteChangeError = () => {
+    console.log('onRouteChangeError Triggered');
+};
 
 const Logo = styled.h1`
   font-size: 4rem;
